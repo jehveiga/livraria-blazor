@@ -23,9 +23,4 @@
     {
         Console.WriteLine($"Changed: {(e.Mode == DesignThemeModes.System ? "System" : "")} {(e.IsDark ? "Dark" : "Light")}");
     }
-
-    void PickRandomColor()
-    {
-        OfficeColor = OfficeColorUtilities.GetRandom();
-    }
 }
