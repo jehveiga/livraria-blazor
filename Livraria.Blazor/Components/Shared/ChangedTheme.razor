@@ -1,0 +1,31 @@
+﻿@rendermode InteractiveServer
+
+<FluentDesignTheme @bind-Mode="@Mode"
+                   @bind-OfficeColor="@OfficeColor"
+                   OnLoaded="@OnLoaded"
+                   OnLuminanceChanged="@OnLuminanceChanged"
+                   StorageName="theme" />
+<FluentSelect Label="Theme"
+              Width="250px"
+              Items="@(Enum.GetValues<DesignThemeModes>())"
+              @bind-SelectedOption="@Mode" />
+
+@code{
+    public DesignThemeModes Mode { get; set; }
+    public OfficeColor? OfficeColor { get; set; }
+
+    void OnLoaded(LoadedEventArgs e)
+    {
+        Console.WriteLine($"Loaded: {(e.Mode == DesignThemeModes.System ? "System" : "")} {(e.IsDark ? "Dark" : "Light")}");
+    }
+
+    void OnLuminanceChanged(LuminanceChangedEventArgs e)
+    {
+        Console.WriteLine($"Changed: {(e.Mode == DesignThemeModes.System ? "System" : "")} {(e.IsDark ? "Dark" : "Light")}");
+    }
+
+    void PickRandomColor()
+    {
+        OfficeColor = OfficeColorUtilities.GetRandom();
+    }
+}
