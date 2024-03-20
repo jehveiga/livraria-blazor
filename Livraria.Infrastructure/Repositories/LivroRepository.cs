@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Livraria.Infrastructure.Repositories
 {
-    internal class LivroRepository : ILivroRepository
+    public class LivroRepository : ILivroRepository
     {
         private readonly ApplicationDbContext _dbContext;
 
