@@ -7,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+// Local onde registra os serviços do contexto de dados
+
 builder.Services.AddFluentUIComponents();
 
 var app = builder.Build();
